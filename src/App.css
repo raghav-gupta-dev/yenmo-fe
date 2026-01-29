@@ -179,6 +179,16 @@ body {
   background: #2a2a3e;
 }
 
+.log-line-number {
+  color: #666;
+  font-weight: 700;
+  font-size: 0.8rem;
+  min-width: 45px;
+  text-align: right;
+  user-select: none;
+  font-family: 'Courier New', monospace;
+}
+
 .log-timestamp {
   color: #888;
   white-space: nowrap;
@@ -271,5 +281,10 @@ body {
 
   .log-level {
     min-width: auto;
+  }
+
+  .log-line-number {
+    min-width: 35px;
+    font-size: 0.75rem;
   }
 }
