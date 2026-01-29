@@ -33,6 +33,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .status-indicator {
@@ -59,8 +60,39 @@ body {
   color: #b0b0b0;
 }
 
-.clear-btn {
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-left: auto;
+}
+
+.filter-container label {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+.filter-select {
+  padding: 0.4rem 0.8rem;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  border: 1px solid #404040;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: border-color 0.3s;
+}
+
+.filter-select:hover {
+  border-color: #00d9ff;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #00d9ff;
+}
+
+.clear-btn {
   padding: 0.5rem 1.5rem;
   background: #ff4444;
   color: white;
@@ -117,8 +149,15 @@ body {
   font-size: 0.95rem;
   display: flex;
   gap: 1rem;
+  align-items: center;
   transition: background 0.2s;
   animation: slideIn 0.3s ease-out;
+}
+
+/* Style for history logs */
+.log-entry.log-history {
+  background: #1f1f2e;
+  opacity: 0.85;
 }
 
 @keyframes slideIn {
@@ -136,16 +175,60 @@ body {
   background: #2d2d2d;
 }
 
+.log-entry.log-history:hover {
+  background: #2a2a3e;
+}
+
 .log-timestamp {
   color: #888;
   white-space: nowrap;
   font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.log-level {
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  min-width: 60px;
+  font-size: 0.85rem;
 }
 
 .log-message {
   color: #e0e0e0;
   word-break: break-word;
   flex: 1;
+  line-height: 1.4;
+}
+
+.history-badge {
+  background: #9d4edd;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.footer {
+  background: #2d2d2d;
+  padding: 0.75rem 2rem;
+  border-top: 2px solid #404040;
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+.stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* Scrollbar styling */
@@ -164,4 +247,29 @@ body {
 
 .logs-container::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .status-bar {
+    gap: 0.5rem;
+  }
+
+  .filter-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .log-entry {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .log-level {
+    min-width: auto;
+  }
 }
